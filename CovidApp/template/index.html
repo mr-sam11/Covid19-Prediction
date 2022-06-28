@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>COVID19 Prediction Usecase</title>
+    <!-------------------------------------ADDING CSS AND BOOTSTRAP------------------------------------------------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!-------------------------------------------------------------------------------------->
+</head>
+<body style="background-color:lightgrey">
+  <!---------------------------ADDING NAV BAR------------------------------------>
+  <nav class="navbar nabbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><font color="white">Covid 19 Prediction</font></a>
+      <a class="navbar-brand" href="{% url 'predictions' %}"><font color="white">All predictions</font></a>
+    </div>
+  </nav>
+  <!----------------------------------------------------------------------->
+  <div class="container">
+    <div class="row mt-4">
+     <div class="col-md-8 offset-md-2">
+       <!-- <div class="card shadow">-->
+        <!--  <div class="card body">-->
+  <!----------------------------------------------------------------------->
+    <div class="container">
+    <form method="post" enctype="multipart/form-data" action="predictCovid">
+        {% csrf_token %}
+        <!--<div class="col-md-4 col-sm-4"><label for="fname">Cylinders:</label> </div> <input name="cylinderVal" type="text" value=1><br><br>
+        <div class="col-md-4 col-sm-4"><label for="lname">Displacement:</label> </div> <input type="text" id="lname" name="dispVal" value=2><br><br>
+        <div class="col-md-4 col-sm-4"><label for="fname">horsepower:</label> </div> <input type="text" id="fname" name="hrsPwrVal" value=3><br><br>
+        <div class="col-md-4 col-sm-4"><label for="lname">weight:</label> </div> <input type="text" id="lname" name="weightVal" value=4><br><br>
+        <div class="col-md-4 col-sm-4"><label for="fname">acceleration:</label></div>  <input type="text" id="fname" name="accVal" value=5><br><br>
+        <div class="col-md-4 col-sm-4"><label for="lname">model:</label> </div> <input type="text" id="lname" name="modelVal" value=6><br><br>
+        <div class="col-md-4 col-sm-4"><label for="lname">origin:</label> </div> <input type="text" id="lname" name="originVal" value=7><br><br>-->
+        <label for="fname">Name</label>
+        <input type="text" name="name" class="form-control" id="name" >
+        <br><br>
+        <label for="fname">Gender</label>
+        <select class="form-control"  aria-label="Default select example" id="Gender" name="Gender">
+            <option selected value="1">Male</option>
+            <option value="0">Female</option>
+        </select>
+        <br><br>
+        <label for="lname">Age</label>
+        <input type="text" id="Age" name="Age" class="form-control"><br><br>
+        <!-------------------------------------------------------------------->
+         <label for="exampleInputEmail1" >Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+        <br><br>
+        <label for="phone" >Phone Number</label>
+        <input type="phone" class="form-control" id="phone" name="phone" aria-describedby="emailHelp">
+        <br><br>
+        <label for="fname">City</label>
+        <input type="text" name="city" class="form-control" id="city" >
+        <br><br>
+        <label for="fname">Landmark</label>
+        <input type="text" name="landmark" class="form-control" id="landmark" >
+        <br><br>
+        <!----------------------------------------------------------------------->
+        <label for="fname">fever</label>
+        <select class="form-control" aria-label="Default select example" id="fever" name="fever">
+            <option selected value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br><br>
+        <label for="fname">Cough</label> 
+        <select class="form-control" aria-label="Default select example" id="cough" name="cough">
+            <option selected value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br><br>
+        <label for="fname">Runny_nose</label>
+        <select class="form-control" aria-label="Default select example" id="runny_nose" name="runny_nose">
+            <option selected value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br><br>
+        <label for="fname">Muscle_soreness</label> 
+        <select class="form-control" aria-label="Default select example" id="muscle_soreness" name="muscle_soreness">
+            <option selected value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br><br>
+        <label for="fname">Pneumonia</label>
+        <select class="form-control" aria-label="Default select example" id="pneumonia" name="pneumonia">
+            <option selected value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br><br>
+        <label for="fname">Diarrhea</label>
+        <select class="form-control" aria-label="Default select example" id="diarrhea" name="diarrhea">
+            <option selected value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br><br>
+        <label for="fname">Lung_infection</label>
+        <select class="form-control" aria-label="Default select example" id="lung_infection" name="lung_infection">
+            <option selected value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br><br>
+        <label for="fname">Travel_history</label>
+        <select class="form-control" aria-label="Default select example" id="travel_history" name="travel_history">
+            <option selected value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br><br>
+        <label for="fname">Isolation_treatment</label>
+        <select class="form-control" aria-label="Default select example" id="isolation_treatment" name="isolation_treatment">
+            <option selected value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br><br>
+          <!--------------------------------------------------------->
+        <br>
+        <input type="submit" value="Submit"></div>
+    </form>
+   </div>
+    <br>
+    </div>
+    </div>
+    </div>
+    <!--</div>-->
+ <!-- </div>-->
+</body>
+</html>

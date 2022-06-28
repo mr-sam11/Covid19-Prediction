@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Result</title>
+    <!-------------------------------------ADDING CSS AND BOOTSTRAP------------------------------------------------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!-------------------------------------------------------------------------------------->
+  </head>
+  <body style="background-color:lightgrey;">
+     <!---------------------------ADDING NAV BAR------------------------------------>
+  <nav class="navbar nabbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'HomePage' %}"><font color="white">Covid 19 Prediction</font></a>
+      <a class="navbar-brand" href="{% url 'predictions' %}"><font color="white">All predictions</font></a>
+    </div>
+  </nav>
+  <!----------------------------------------------------------------------->
+    <div class="container">
+      <div class="row mt-4">
+       <div class="col-md-8 offset-md-2">
+        <h1>Prediction Result : Negative</h1>
+        <br><br>
+        <h3>{{b}}</h3>
+      </div>
+    </div>
+    <!--------{{ result }}---------------------->
+  </body>
+</html>
